@@ -1,6 +1,8 @@
 const express = require("express");
+require("dotenv").config();
+
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware - JSON parser
 app.use(express.json());
@@ -25,9 +27,9 @@ app.post("/predict", (req, res) => {
         const { input } = req.body;
         
         // Input validation
-        if (!input) {
+        if (!input || !Array.isArray(input) || input.length === 0) {
             return res.status(400).json({
-                error: "Input is required"
+                error: "Input must be a non-empty array"
             });
         }
 
@@ -53,3 +55,4 @@ app.post("/predict", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
