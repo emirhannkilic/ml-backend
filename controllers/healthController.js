@@ -1,9 +1,13 @@
 // Health check controller
 const getHealth = (req, res) => {
     res.json({
-        status: "OK",
-        timestamp: new Date().toISOString(),
-        uptime: process.uptime()
+        success: true,
+        data: {
+            status: "OK",
+            timestamp: new Date().toISOString(),
+            uptime: process.uptime()
+        },
+        error: null
     });
 };
 
