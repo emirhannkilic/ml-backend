@@ -1,4 +1,3 @@
-```
 # ML Service
 
 Python FastAPI-based machine learning prediction service.
@@ -13,14 +12,13 @@ Python FastAPI-based machine learning prediction service.
 
 ## Project Structure
 
-```
-ml-service/
-├── venv/              # Virtual environment (not in git)
-├── app.py             # FastAPI application
-├── requirements.txt   # Python dependencies
-├── .gitignore
-└── README.md
-```
+**Directory layout:**
+
+- `venv/` - Virtual environment (not in git)
+- `app.py` - FastAPI application
+- `requirements.txt` - Python dependencies
+- `.gitignore` - Git ignore rules
+- `README.md` - This file
 
 ## API Endpoints
 
@@ -73,7 +71,6 @@ ML prediction endpoint. Currently returns the average of input array (dummy mode
 ## Setup & Run
 
 ### 1. Create virtual environment
-
 ```bash
 cd ml-service
 python3 -m venv venv
@@ -92,7 +89,6 @@ venv\Scripts\activate
 ```
 
 ### 3. Install dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
@@ -103,7 +99,6 @@ pip install fastapi uvicorn
 ```
 
 ### 4. Run the service
-
 ```bash
 uvicorn app:app --reload --host 0.0.0.0 --port 5001
 ```
@@ -128,6 +123,8 @@ This service is called by the Node.js backend (port 3000) via HTTP requests.
 Client → Node.js (3000) → Python ML Service (5001) → Node.js → Client
 ```
 
+**Responsibilities:**
+
 Node.js handles:
 - Authentication
 - Validation
@@ -140,7 +137,6 @@ Python handles:
 ## Current Model
 
 **Dummy model:** Calculates the average of input array.
-
 ```python
 prediction = sum(input_array) / len(input_array)
 ```
@@ -201,4 +197,3 @@ pip install fastapi uvicorn
 ## Status
 
 🟢 **Active** - Service is running and integrated with Node.js backend
-```
